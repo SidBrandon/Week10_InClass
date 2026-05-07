@@ -28,7 +28,7 @@ class ContactManager:
 
         self.contacts.append(contact)
         self.save_contacts()
-        print("Contact added successfully.")
+        print("Student Contact Saved.")
 
     def list_contacts(self):
         if len(self.contacts) == 0:
@@ -69,12 +69,15 @@ class ContactManager:
         except ValueError:
             print("Please enter a valid number.")
 
+    def count_contacts(self):
+        print(f"Total Contacts: {len(self.contacts)}")
+
 
 def main():
     manager = ContactManager()
 
     while True:
-        print("\nCommands: add, list, search, delete, exit")
+        print("\nCommands: add, list, search, delete, count, exit")
         command = input("Enter command: ").strip().lower()
 
         if command == "add":
@@ -85,6 +88,8 @@ def main():
             manager.search_contact()
         elif command == "delete":
             manager.delete_contact()
+        elif command == "count":
+            manager.count_contacts
         elif command == "exit":
             print("Goodbye.")
             break
